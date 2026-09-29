@@ -8,6 +8,9 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+import { createURL, useURL } from 'expo-linking';
+
+
 
 function getDevMenuHint() {
   if (Platform.OS === 'web') {
@@ -29,6 +32,12 @@ function getDevMenuHint() {
 }
 
 export default function HomeScreen() {
+  
+  const redirectURL = useURL();
+  const url = createURL('Product', {   });
+  console.log("URL=> ", url);
+  
+  
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
@@ -40,7 +49,7 @@ export default function HomeScreen() {
         </ThemedView>
 
         <ThemedText type="code" style={styles.code}>
-          get started
+            verificando deeplink 
         </ThemedText>
 
         <ThemedView type="backgroundElement" style={styles.stepContainer}>
