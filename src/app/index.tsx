@@ -44,7 +44,8 @@ export default function HomeScreen() {
           </ThemedText>
         </ThemedView>
 
-        
+        <Button title="Ir para o Dashboard (Home)" onPress={() => router.push('/Home')} />
+      <Button title="Ver Detalhes do Produto" onPress={() => router.push('/product')} />
 
         <Button title="Ir para o Dashboard (Home)" onPress={() => router.push('/screens/Home')} />
         <Button title="Ver Detalhes do Produto" onPress={() => router.push('/screens/Product')} />
