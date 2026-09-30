@@ -1,5 +1,5 @@
 import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
+import { Button, Platform, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AnimatedIcon } from '@/components/animated-icon';
@@ -8,7 +8,7 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-import { createURL, useURL } from 'expo-linking';
+import { router } from 'expo-router';
 
 
 
@@ -33,11 +33,7 @@ function getDevMenuHint() {
 
 export default function HomeScreen() {
   
-  const redirectURL = useURL();
-  const url = createURL('Product', {   });
-  console.log("URL=> ", url);
-  
-  
+ 
   return (
     <ThemedView style={styles.container}>
       <SafeAreaView style={styles.safeArea}>
@@ -48,13 +44,20 @@ export default function HomeScreen() {
           </ThemedText>
         </ThemedView>
 
+        
+
+        <Button title="Ir para o Dashboard (Home)" onPress={() => router.push('/screens/Home')} />
+        <Button title="Ver Detalhes do Produto" onPress={() => router.push('/screens/Product')} />
+
+
         <ThemedText type="code" style={styles.code}>
             verificando deeplink 
         </ThemedText>
 
         <ThemedView type="backgroundElement" style={styles.stepContainer}>
           <HintRow
-            title="Try editing"
+            
+            title="Ir para o Dashboard (Home)"
             hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
           />
           <HintRow title="Dev tools" hint={getDevMenuHint()} />
